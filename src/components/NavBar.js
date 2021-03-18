@@ -9,7 +9,7 @@ export const NavBar = () => {
         <a class="nav-item nav-link" href="">Procesadores</a>
         <a class="nav-item nav-link" href="">RAMs</a>
         <a class="nav-item nav-link" href="">SSDs</a>
-  <CartWidget />
+        <i class="collapse navbar-collapse justify-content-end"><CartWidget /></i>
   </nav>
   )
 };
