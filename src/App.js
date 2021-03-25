@@ -1,13 +1,14 @@
 import './App.css';
 import { NavBar } from './components/NavBar';
 import { ItemListContainer } from './components/ItemListConteiner';
+import ItemDetailContainer from "./components/ItemDetailConteiner";
 import React from 'react';
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <h2>Bienvenido</h2>
+      <ItemDetailContainer />
       <ItemListContainer />
     </div>
   );
