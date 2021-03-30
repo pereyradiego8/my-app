@@ -1,27 +1,29 @@
 import React, {useState, useEffect} from 'react'
 import ItemDetail from './ItemDetail'
+import { useParams } from "react-router-dom";
 
-
-const getItems = () => {
-    return new Promise((resolve)=>{
+const getItems = (id) => {
+    return  new Promise((resolve)=>{
         setTimeout(()=>{resolve({
             title:"un Item",
             price: 25.5,
-            description: "Un muy lindo item ",
+            description: "Un muy lindo item  con ID: " + id,
             img:""
-
         })},2000)
+    
+    
     })
 }
 
-export const ItemDetailContainer = () =>  {
+export default function ItemDetailContainer() {
     const [item, setItem] = useState(null)
-    useEffect(() => {
-        getItems().then((res)=> setItem(res))
-        return;
-    }, [])
+    const {itemId} = useParams()
 
-     return <ItemDetail item={item} />
+    useEffect(() => {
+        getItems(itemId).then((res)=> setItem(res))
+        return;
+    }, [itemId])
+
+     return <> {itemId}
+     <ItemDetail item={item} /></>
     }
-    
-export default ItemDetailContainer;

@@ -1,16 +1,35 @@
-import './App.css';
-import { NavBar } from './components/NavBar';
-import { ItemListContainer } from './components/ItemListConteiner';
+import "./App.css";
+import { NavBar } from "./components/NavBar";
+import ItemListContainer from "./components/ItemListConteiner";
 import ItemDetailContainer from "./components/ItemDetailConteiner";
-import React from 'react';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <NavBar />
-      <ItemDetailContainer />
-      <ItemListContainer />
-    </div>
+    
+    <BrowserRouter >
+      <div className="App">
+    <NavBar />
+        <Switch >
+          <Route exact path='/'>
+            Hola
+          </Route>
+
+          <Route  path='/category/:categoryId'>
+              <ItemListContainer />
+          </Route>
+
+
+          <Route path='/item/:itemId' >
+              <ItemDetailContainer />
+          </Route>
+
+          <Route path='*' >
+            404
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
