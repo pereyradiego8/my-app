@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import {ItemCount} from './ItemCount'
 import {Link} from 'react-router-dom'
+import { CartContext } from "../context/cartContext";
 
 export default function ItemDetail({ item }) {
     const [count, setCount] = useState(0)
 
-    const addHandler = (contador) => {
-        console.log('Se agregó un Item', contador)
+    const {addItem, cart} = useContext(CartContext);
+
+    const addHandler = (contador)=>{
+        console.log('Se agregó un item', contador)
+        addItem(item, contador)
         setCount(contador)
     }
  
